@@ -60,14 +60,42 @@
           <!-- CTA Button -->
           <a 
             href="#coupon" 
-            class="inline-flex items-center gap-2 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
-            style="background: #0A2540;"
+            class="group relative inline-flex items-center gap-3 text-white font-bold text-lg sm:text-xl px-8 sm:px-10 py-4 sm:py-5 rounded-full shadow-2xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:scale-105 overflow-hidden"
+            style="background: linear-gradient(135deg, #0A2540 0%, #1a3a5c 100%);"
           >
-            <span>Je veux mon coupon -50%</span>
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <!-- Pulsing glow effect -->
+            <div class="absolute inset-0 rounded-full opacity-75 animate-pulse" style="background: linear-gradient(135deg, #3a82ba 0%, #0A2540 100%); animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></div>
+            
+            <!-- Shine effect on hover -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            
+            <!-- Content -->
+            <span class="relative z-10 flex items-center gap-2">
+              <span class="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
+                <span class="text-sm sm:text-base">🎁</span>
+              </span>
+              <span>Je veux mon coupon -50%</span>
+            </span>
+            
+            <!-- Arrow icon -->
+            <svg class="relative z-10 w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
+          
+          <!-- Custom animation for subtle pulse -->
+          <style scoped>
+            @keyframes pulse-glow {
+              0%, 100% {
+                opacity: 0.4;
+                transform: scale(1);
+              }
+              50% {
+                opacity: 0.6;
+                transform: scale(1.02);
+              }
+            }
+          </style>
 
           <!-- Trust indicators -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-8 text-sm" style="color: #486581;">
