@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100">
+  <!-- Logo complet DOGGYWASH - Style professionnel -->
+  
+  <!-- Paw print icon -->
+  <g transform="translate(5, 8) scale(0.85)">
+    <!-- 4 Toe pads -->
+    <ellipse cx="13" cy="16" rx="6" ry="8" fill="#102a43"/>
+    <ellipse cx="27" cy="8" rx="5.5" ry="7" fill="#102a43"/>
+    <ellipse cx="41" cy="8" rx="5.5" ry="7" fill="#102a43"/>
+    <ellipse cx="55" cy="16" rx="6" ry="8" fill="#102a43"/>
+    
+    <!-- Main pad -->
+    <path 
+      d="M34 24 
+         C20 24, 8 38, 12 52 
+         C14 58, 24 64, 34 64 
+         C44 64, 54 58, 56 52 
+         C60 38, 48 24, 34 24 Z"
+      fill="#102a43"
+    />
+    
+    <!-- Clean water drop cutout -->
+    <path 
+      d="M34 33
+         C34 33, 26 44, 26 50
+         C26 54.4, 29.6 58, 34 58
+         C38.4 58, 42 54.4, 42 50
+         C42 44, 34 33, 34 33 Z"
+      fill="white"
+    />
+  </g>
+  
+  <!-- Text DOGGYWASH -->
+  <text x="70" y="48" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="28" fill="#102a43" letter-spacing="1.5">
+    DOGGYWASH
+  </text>
+  
+  <!-- Tagline -->
+  <text x="70" y="70" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-weight="400" font-size="12" fill="#486581" letter-spacing="0.5">
+    Propre. Rapide. Sans stress.
+  </text>
+</svg>
