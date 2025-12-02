@@ -42,8 +42,8 @@ const benefits = [
           class="group bg-gradient-to-br from-slate-50 to-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-slate-100"
         >
           <!-- Icon Container -->
-          <div class="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl mb-4 sm:mb-6 shadow-md group-hover:shadow-lg transition-shadow duration-300 group-hover:scale-110">
-            {{ benefit.icon }}
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl flex items-center justify-center mb-4 sm:mb-5 shadow-md group-hover:shadow-lg transition-shadow duration-300 group-hover:scale-110 overflow-hidden">
+            <span class="text-3xl sm:text-4xl leading-none">{{ benefit.icon }}</span>
           </div>
           
           <!-- Title -->
