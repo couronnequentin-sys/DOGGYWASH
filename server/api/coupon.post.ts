@@ -129,10 +129,10 @@ export default defineEventHandler(async (event) => {
   try {
     // Récupérer les données du formulaire
     const body = await readBody(event)
-    const { nom, email, telephone } = body
+    const { nom, email } = body
 
     // Validation
-    if (!nom || !email || !telephone) {
+    if (!nom || !email) {
       throw createError({
         statusCode: 400,
         message: 'Tous les champs sont requis'

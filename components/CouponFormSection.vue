@@ -1,8 +1,7 @@
 <script setup lang="ts">
 const form = reactive({
   nom: '',
-  email: '',
-  telephone: ''
+  email: ''
 })
 
 const isSubmitting = ref(false)
@@ -19,8 +18,7 @@ const handleSubmit = async () => {
       method: 'POST',
       body: {
         nom: form.nom,
-        email: form.email,
-        telephone: form.telephone
+        email: form.email
       }
     })
 
@@ -129,21 +127,6 @@ const handleSubmit = async () => {
                     type="email"
                     required
                     placeholder="Ex: marie@email.com"
-                    class="w-full px-4 py-3 border rounded-xl transition-all"
-                    style="background: #EFF6FB; border-color: #b9d5eb;"
-                  >
-                </div>
-
-                <div>
-                  <label for="telephone" class="block text-sm font-medium mb-1" style="color: #0A2540;">
-                    Ton téléphone
-                  </label>
-                  <input
-                    id="telephone"
-                    v-model="form.telephone"
-                    type="tel"
-                    required
-                    placeholder="Ex: 06 12 34 56 78"
                     class="w-full px-4 py-3 border rounded-xl transition-all"
                     style="background: #EFF6FB; border-color: #b9d5eb;"
                   >
