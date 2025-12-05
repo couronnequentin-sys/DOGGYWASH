@@ -27,7 +27,7 @@ const steps = [
   {
     number: '03',
     title: 'Séchage intégré',
-    description: 'Ton chien ressort propre ET sec. Plus besoin d\'essuyer !',
+    description: 'Ton chien ressort propre et sec. Plus besoin d\'essuyer !',
     icon: '💨',
     highlighted: true,
     details: [
@@ -91,12 +91,9 @@ const steps = [
           <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-4 transition-transform bg-gradient-to-br from-blue-100 to-sky-100 shadow-md scale-110">
             {{ step.icon }}
           </div>
-          <h3 class="font-display text-xl font-bold mb-3 text-navy-900">
+          <h3 class="font-display text-xl font-bold mb-4 text-navy-900">
             {{ step.title }}
           </h3>
-          <p class="mb-3 text-navy-700 text-base font-medium leading-relaxed">
-            {{ step.description }}
-          </p>
           
           <!-- Details pour toutes les étapes -->
           <div v-if="step.details" class="mt-4 pt-4 border-t border-blue-200">
