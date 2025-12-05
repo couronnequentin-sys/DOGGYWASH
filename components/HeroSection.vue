@@ -19,7 +19,7 @@
           <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: #0A2540;">
             Lave ton chien en 
             <span style="color: #3a82ba;">10 minutes</span>
-            <br>sans bazar à la maison
+            <br>sans mettre le bazar à la maison
           </h1>
 
           <!-- Subheadline -->
