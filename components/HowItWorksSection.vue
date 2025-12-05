@@ -3,8 +3,13 @@ const steps = [
   {
     number: '01',
     title: 'Installe ton chien',
-    description: 'La cabine accueille tous les gabarits en toute sécurité.',
-    icon: '🐕'
+    description: 'Entre dans la cabine avec ton chien. Tous les gabarits sont les bienvenus !',
+    icon: '🐕',
+    details: [
+      'Entre dans la cabine',
+      'Installe ton chien sur la plateforme',
+      'Tous les gabarits acceptés'
+    ]
   },
   {
     number: '02',
@@ -21,14 +26,24 @@ const steps = [
   {
     number: '03',
     title: 'Séchage intégré',
-    description: 'Ton chien ressort propre ET sec.',
-    icon: '💨'
+    description: 'Ton chien ressort propre ET sec. Plus besoin d\'essuyer !',
+    icon: '💨',
+    details: [
+      'Active le séchage automatique',
+      'Ton chien ressort sec',
+      'Ta maison reste propre'
+    ]
   },
   {
     number: '04',
     title: 'Paiement simple',
-    description: 'CB, mobile ou QR code. Pas de contrainte.',
-    icon: '💳'
+    description: 'Paiement rapide et flexible. Plusieurs options disponibles.',
+    icon: '💳',
+    details: [
+      'Paiement par CB',
+      'Ou avec ton téléphone',
+      'QR code aussi disponible'
+    ]
   }
 ]
 </script>
@@ -89,21 +104,34 @@ const steps = [
           <p 
             :class="[
               'mb-3',
-              step.highlighted ? 'text-navy-700 text-base font-medium leading-relaxed' : 'text-navy-600 text-sm'
+              step.highlighted 
+                ? 'text-navy-700 text-base font-medium leading-relaxed' 
+                : 'text-navy-700 text-sm font-medium leading-relaxed'
             ]"
           >
             {{ step.description }}
           </p>
           
-          <!-- Details pour l'étape 2 (highlighted) -->
-          <div v-if="step.highlighted && step.details" class="mt-4 pt-4 border-t border-blue-200">
+          <!-- Details pour toutes les étapes -->
+          <div v-if="step.details" :class="[
+            'mt-4 pt-4',
+            step.highlighted ? 'border-t border-blue-200' : 'border-t border-slate-200'
+          ]">
             <ul class="space-y-2">
               <li 
                 v-for="(detail, idx) in step.details" 
                 :key="idx"
-                class="flex items-start gap-2 text-sm text-navy-700"
+                :class="[
+                  'flex items-start gap-2 text-sm',
+                  step.highlighted ? 'text-navy-700' : 'text-navy-600'
+                ]"
               >
-                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-0.5">
+                <span 
+                  :class="[
+                    'flex-shrink-0 w-5 h-5 rounded-full text-white flex items-center justify-center text-xs font-bold mt-0.5',
+                    step.highlighted ? 'bg-blue-500' : 'bg-slate-400'
+                  ]"
+                >
                   {{ idx + 1 }}
                 </span>
                 <span class="flex-1 leading-relaxed">{{ detail }}</span>
