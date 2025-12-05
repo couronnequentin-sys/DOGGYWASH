@@ -8,8 +8,8 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Lavage automatique',
-    description: 'Eau chaude + shampoing adapté. Tu restes à côté.',
+    title: 'Tu laves ton chien',
+    description: 'Avec la lance, tu laves ton chien. Eau chaude et shampoing adapté inclus.',
     icon: '🚿'
   },
   {
