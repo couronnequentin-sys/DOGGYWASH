@@ -19,14 +19,13 @@
           <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: #0A2540;">
             Lave ton chien en 
             <span style="color: #3a82ba;">10 minutes</span>
-            <br>dans notre station, 
-            <br><span style="color: #3a82ba;">fini le bazar à la maison</span>
+            <br>dans notre station
           </h1>
 
           <!-- Subheadline -->
           <p class="text-lg mb-8 max-w-lg mx-auto lg:mx-0" style="color: #486581;">
             Une machine professionnelle où <strong style="color: #0A2540;">tu laves ton chien toi-même</strong>, sans rendez-vous, sans stress. 
-            Ton chien ressort propre et sec, ta salle de bain reste intacte.
+            <strong style="color: #0A2540;">Fini le bazar à la maison</strong> : ton chien ressort propre et sec, ta salle de bain reste intacte.
           </p>
 
           <!-- Offer Box -->
