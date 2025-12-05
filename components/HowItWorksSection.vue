@@ -9,8 +9,14 @@ const steps = [
   {
     number: '02',
     title: 'Tu laves ton chien',
-    description: 'Avec la lance, tu laves ton chien. Eau chaude et shampoing adapté inclus.',
-    icon: '🚿'
+    description: 'C\'est toi qui laves ton chien avec la lance. Simple et rapide !',
+    icon: '🚿',
+    highlighted: true,
+    details: [
+      'Prends la lance dans la cabine',
+      'Lave ton chien toi-même',
+      'Eau chaude + shampoing inclus'
+    ]
   },
   {
     number: '03',
@@ -48,20 +54,62 @@ const steps = [
         <div 
           v-for="(step, index) in steps" 
           :key="index"
-          class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+          :class="[
+            'rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300',
+            step.highlighted 
+              ? 'bg-gradient-to-br from-blue-50 to-sky-50 border-2 border-blue-200 ring-2 ring-blue-100' 
+              : 'bg-white'
+          ]"
         >
-          <div class="text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4" style="background: #0A2540;">
+          <div 
+            :class="[
+              'text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4',
+              step.highlighted ? 'shadow-md' : ''
+            ]"
+            :style="step.highlighted ? 'background: linear-gradient(135deg, #3a82ba 0%, #0A2540 100%);' : 'background: #0A2540;'"
+          >
             Étape {{ step.number }}
           </div>
-          <div class="w-14 h-14 bg-slate-100 rounded-xl flex items-center justify-center text-2xl mb-4">
+          <div 
+            :class="[
+              'w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-4 transition-transform',
+              step.highlighted ? 'bg-gradient-to-br from-blue-100 to-sky-100 shadow-md scale-110' : 'bg-slate-100'
+            ]"
+          >
             {{ step.icon }}
           </div>
-          <h3 class="font-display text-lg font-bold text-navy-900 mb-2">
+          <h3 
+            :class="[
+              'font-display font-bold mb-3',
+              step.highlighted ? 'text-xl text-navy-900' : 'text-lg text-navy-900'
+            ]"
+          >
             {{ step.title }}
           </h3>
-          <p class="text-navy-600 text-sm">
+          <p 
+            :class="[
+              'mb-3',
+              step.highlighted ? 'text-navy-700 text-base font-medium leading-relaxed' : 'text-navy-600 text-sm'
+            ]"
+          >
             {{ step.description }}
           </p>
+          
+          <!-- Details pour l'étape 2 (highlighted) -->
+          <div v-if="step.highlighted && step.details" class="mt-4 pt-4 border-t border-blue-200">
+            <ul class="space-y-2">
+              <li 
+                v-for="(detail, idx) in step.details" 
+                :key="idx"
+                class="flex items-start gap-2 text-sm text-navy-700"
+              >
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-0.5">
+                  {{ idx + 1 }}
+                </span>
+                <span class="flex-1 leading-relaxed">{{ detail }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
