@@ -3,7 +3,6 @@ const steps = [
   {
     number: '01',
     title: 'Installe ton chien',
-    description: 'Entre dans la cabine avec ton chien. Tous les gabarits sont les bienvenus !',
     icon: '🐕',
     highlighted: true,
     details: [
@@ -15,7 +14,6 @@ const steps = [
   {
     number: '02',
     title: 'Tu laves ton chien',
-    description: 'C\'est toi qui laves ton chien avec la lance. Simple et rapide !',
     icon: '🚿',
     highlighted: true,
     details: [
@@ -27,7 +25,6 @@ const steps = [
   {
     number: '03',
     title: 'Séchage intégré',
-    description: 'Ton chien ressort propre et sec. Plus besoin d\'essuyer !',
     icon: '💨',
     highlighted: true,
     details: [
@@ -39,7 +36,6 @@ const steps = [
   {
     number: '04',
     title: 'Paiement simple',
-    description: 'Paiement rapide et flexible. Plusieurs options disponibles.',
     icon: '💳',
     highlighted: true,
     details: [
