@@ -5,6 +5,7 @@ const steps = [
     title: 'Installe ton chien',
     description: 'Entre dans la cabine avec ton chien. Tous les gabarits sont les bienvenus !',
     icon: '🐕',
+    highlighted: true,
     details: [
       'Entre dans la cabine',
       'Installe ton chien sur la plateforme',
@@ -28,6 +29,7 @@ const steps = [
     title: 'Séchage intégré',
     description: 'Ton chien ressort propre ET sec. Plus besoin d\'essuyer !',
     icon: '💨',
+    highlighted: true,
     details: [
       'Active le séchage automatique',
       'Ton chien ressort sec',
@@ -39,6 +41,7 @@ const steps = [
     title: 'Paiement simple',
     description: 'Paiement rapide et flexible. Plusieurs options disponibles.',
     icon: '💳',
+    highlighted: true,
     details: [
       'Paiement par CB',
       'Ou avec ton téléphone',
@@ -85,52 +88,26 @@ const steps = [
           >
             Étape {{ step.number }}
           </div>
-          <div 
-            :class="[
-              'w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-4 transition-transform',
-              step.highlighted ? 'bg-gradient-to-br from-blue-100 to-sky-100 shadow-md scale-110' : 'bg-slate-100'
-            ]"
-          >
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-4 transition-transform bg-gradient-to-br from-blue-100 to-sky-100 shadow-md scale-110">
             {{ step.icon }}
           </div>
-          <h3 
-            :class="[
-              'font-display font-bold mb-3',
-              step.highlighted ? 'text-xl text-navy-900' : 'text-lg text-navy-900'
-            ]"
-          >
+          <h3 class="font-display text-xl font-bold mb-3 text-navy-900">
             {{ step.title }}
           </h3>
-          <p 
-            :class="[
-              'mb-3',
-              step.highlighted 
-                ? 'text-navy-700 text-base font-medium leading-relaxed' 
-                : 'text-navy-700 text-sm font-medium leading-relaxed'
-            ]"
-          >
+          <p class="mb-3 text-navy-700 text-base font-medium leading-relaxed">
             {{ step.description }}
           </p>
           
           <!-- Details pour toutes les étapes -->
-          <div v-if="step.details" :class="[
-            'mt-4 pt-4',
-            step.highlighted ? 'border-t border-blue-200' : 'border-t border-slate-200'
-          ]">
+          <div v-if="step.details" class="mt-4 pt-4 border-t border-blue-200">
             <ul class="space-y-2">
               <li 
                 v-for="(detail, idx) in step.details" 
                 :key="idx"
-                :class="[
-                  'flex items-start gap-2 text-sm',
-                  step.highlighted ? 'text-navy-700' : 'text-navy-600'
-                ]"
+                class="flex items-start gap-2 text-sm text-navy-700"
               >
                 <span 
-                  :class="[
-                    'flex-shrink-0 w-5 h-5 rounded-full text-white flex items-center justify-center text-xs font-bold mt-0.5',
-                    step.highlighted ? 'bg-blue-500' : 'bg-slate-400'
-                  ]"
+                  class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-0.5"
                 >
                   {{ idx + 1 }}
                 </span>
