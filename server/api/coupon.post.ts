@@ -1,6 +1,100 @@
 import { Resend } from 'resend'
+import jwt from 'jsonwebtoken'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+
+// Fonction pour envoyer les données à Google Sheets
+async function saveToGoogleSheets(nom: string, email: string, couponCode: string): Promise<void> {
+  const sheetsId = process.env.GOOGLE_SHEETS_ID
+  const serviceAccount = process.env.GOOGLE_SERVICE_ACCOUNT
+
+  // Si Google Sheets n'est pas configuré, on ne fait rien
+  if (!sheetsId || !serviceAccount) {
+    console.log('Google Sheets non configuré - données non sauvegardées')
+    return
+  }
+
+  try {
+    // Parser le compte de service
+    let serviceAccountJson: any
+    try {
+      serviceAccountJson = typeof serviceAccount === 'string' 
+        ? JSON.parse(serviceAccount) 
+        : serviceAccount
+    } catch (e) {
+      console.error('Erreur parsing Google Service Account:', e)
+      return
+    }
+
+    // Obtenir un token d'accès
+    const jwt = await getGoogleAccessToken(serviceAccountJson)
+    
+    // Préparer les données
+    const dateTime = new Date().toLocaleString('fr-FR', { 
+      timeZone: 'Europe/Paris',
+      dateStyle: 'short',
+      timeStyle: 'medium'
+    })
+    
+    const values = [[dateTime, nom, email, couponCode]]
+    
+    // Ajouter la ligne dans le Sheet (feuille "Sheet1" par défaut)
+    const response = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${sheetsId}/values/Sheet1!A:D:append?valueInputOption=RAW`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${jwt}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          values: values,
+        }),
+      }
+    )
+
+    if (!response.ok) {
+      const error = await response.text()
+      console.error('Erreur Google Sheets:', error)
+    } else {
+      console.log('Données sauvegardées dans Google Sheets')
+    }
+  } catch (error) {
+    console.error('Erreur lors de la sauvegarde dans Google Sheets:', error)
+    // On ne bloque pas l'envoi de l'email si Google Sheets échoue
+  }
+}
+
+// Fonction pour obtenir un token d'accès Google
+async function getGoogleAccessToken(serviceAccount: any): Promise<string> {
+  const now = Math.floor(Date.now() / 1000)
+  const jwtPayload = {
+    iss: serviceAccount.client_email,
+    sub: serviceAccount.client_email,
+    aud: 'https://oauth2.googleapis.com/token',
+    exp: now + 3600,
+    iat: now,
+    scope: 'https://www.googleapis.com/auth/spreadsheets',
+  }
+
+  const token = jwt.sign(jwtPayload, serviceAccount.private_key, {
+    algorithm: 'RS256',
+  })
+
+  const response = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+      assertion: token,
+    }),
+  })
+
+  const data = await response.json()
+  return data.access_token
+}
 
 // Génère un code de coupon unique
 function generateCouponCode(): string {
@@ -198,8 +292,13 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    // Log pour le suivi (optionnel - vous pouvez aussi sauvegarder en base de données)
+    // Log pour le suivi
     console.log(`Nouvelle inscription: ${nom} (${email}) - Coupon: ${couponCode}`)
+
+    // Sauvegarder dans Google Sheets (si configuré - non bloquant)
+    await saveToGoogleSheets(nom, email, couponCode).catch(err => {
+      console.error('Erreur Google Sheets (non bloquant):', err)
+    })
 
     // Retourner le succès
     return {

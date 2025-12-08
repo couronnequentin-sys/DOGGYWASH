@@ -83,7 +83,7 @@
         <div class="relative">
           <div class="relative rounded-3xl overflow-hidden shadow-2xl">
             <img 
-              src="/img/chien-propre-hero-fast.png" 
+              src="/img/chien-4.png" 
               alt="Chien propre rapidement avec DOGGYWASH" 
               class="w-full h-auto object-cover"
             />

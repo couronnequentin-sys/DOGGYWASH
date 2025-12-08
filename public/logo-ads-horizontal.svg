@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <!-- Logo DOGGYWASH - Version horizontale pour campagnes publicitaires -->
+  
+  <!-- Paw print icon -->
+  <g transform="translate(10, 15) scale(1.1)">
+    <!-- 4 Toe pads -->
+    <ellipse cx="13" cy="16" rx="6" ry="8" fill="#0A2540"/>
+    <ellipse cx="27" cy="8" rx="5.5" ry="7" fill="#0A2540"/>
+    <ellipse cx="41" cy="8" rx="5.5" ry="7" fill="#0A2540"/>
+    <ellipse cx="55" cy="16" rx="6" ry="8" fill="#0A2540"/>
+    
+    <!-- Main pad -->
+    <path 
+      d="M34 24 
+         C20 24, 8 38, 12 52 
+         C14 58, 24 64, 34 64 
+         C44 64, 54 58, 56 52 
+         C60 38, 48 24, 34 24 Z"
+      fill="#0A2540"
+    />
+    
+    <!-- Clean water drop cutout -->
+    <path 
+      d="M34 33
+         C34 33, 26 44, 26 50
+         C26 54.4, 29.6 58, 34 58
+         C38.4 58, 42 54.4, 42 50
+         C42 44, 34 33, 34 33 Z"
+      fill="#8dbdde"
+    />
+  </g>
+  
+  <!-- Text DOGGYWASH -->
+  <text x="90" y="55" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="800" font-size="36" fill="#0A2540" letter-spacing="2">
+    DOGGYWASH
+  </text>
+  
+  <!-- Tagline -->
+  <text x="90" y="80" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" font-size="14" fill="#486581" letter-spacing="1">
+    Propre. Rapide. Sans stress.
+  </text>
+</svg>
+
