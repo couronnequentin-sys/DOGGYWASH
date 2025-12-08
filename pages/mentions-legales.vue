@@ -86,7 +86,7 @@ useHead({
             </p>
             <p class="text-navy-600 leading-relaxed">
               La création de liens hypertextes vers le site DOGGYWASH nécessite l'autorisation préalable et écrite de DOGGYWASH. Pour toute demande, merci de nous contacter à l'adresse : 
-              <a href="mailto:contact@doggywash.fr" class="text-coral-500 hover:text-coral-600">contact@doggywash.fr</a>
+              <a href="mailto:contact.doggywash@gmail.com" class="text-coral-500 hover:text-coral-600">contact.doggywash@gmail.com</a>
             </p>
           </section>
 
@@ -105,7 +105,7 @@ useHead({
             </h2>
             <p class="text-navy-600 leading-relaxed">
               Pour toute question relative aux présentes mentions légales, tu peux nous contacter à l'adresse suivante : 
-              <a href="mailto:contact@doggywash.fr" class="text-coral-500 hover:text-coral-600">contact@doggywash.fr</a>
+              <a href="mailto:contact.doggywash@gmail.com" class="text-coral-500 hover:text-coral-600">contact.doggywash@gmail.com</a>
             </p>
           </section>
         </div>

@@ -63,7 +63,7 @@ useHead({
               </p>
               <p class="text-navy-700">
                 <strong>Contact :</strong> 
-                <a href="mailto:contact@doggywash.fr" class="text-coral-500 hover:text-coral-600">contact@doggywash.fr</a>
+                <a href="mailto:contact.doggywash@gmail.com" class="text-coral-500 hover:text-coral-600">contact.doggywash@gmail.com</a>
               </p>
             </div>
           </section>
@@ -147,7 +147,7 @@ useHead({
             </ul>
             <p class="text-navy-600 leading-relaxed mb-4">
               Pour exercer ces droits, contacte-nous à : 
-              <a href="mailto:contact@doggywash.fr" class="text-coral-500 hover:text-coral-600">contact@doggywash.fr</a>
+              <a href="mailto:contact.doggywash@gmail.com" class="text-coral-500 hover:text-coral-600">contact.doggywash@gmail.com</a>
             </p>
             <p class="text-navy-600 leading-relaxed">
               Tu as également le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) si tu estimes que le traitement de tes données ne respecte pas la réglementation.
@@ -189,7 +189,7 @@ useHead({
             </p>
             <p class="text-navy-600 leading-relaxed">
               Pour toute question concernant cette politique, contacte-nous à : 
-              <a href="mailto:contact@doggywash.fr" class="text-coral-500 hover:text-coral-600">contact@doggywash.fr</a>
+              <a href="mailto:contact.doggywash@gmail.com" class="text-coral-500 hover:text-coral-600">contact.doggywash@gmail.com</a>
             </p>
           </section>
         </div>

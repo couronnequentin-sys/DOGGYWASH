@@ -161,8 +161,8 @@ const toggleFaq = (index: number) => {
         <div class="mt-10 sm:mt-12 text-center">
           <p class="text-navy-500 text-sm sm:text-base">
             Tu as une autre question ? Écris-nous à 
-            <a href="mailto:contact@doggywash.fr" class="text-coral-500 hover:text-coral-600 font-medium underline underline-offset-2">
-              contact@doggywash.fr
+            <a href="mailto:contact.doggywash@gmail.com" class="text-coral-500 hover:text-coral-600 font-medium underline underline-offset-2">
+              contact.doggywash@gmail.com
             </a>
           </p>
         </div>

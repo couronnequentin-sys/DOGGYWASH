@@ -48,8 +48,8 @@ const currentYear = new Date().getFullYear()
           <ul class="space-y-2" style="color: #8dbdde;">
             <li>📍 Villefranche-sur-Saône (69)</li>
             <li>
-              <a href="mailto:contact@doggywash.fr" class="hover:text-white transition-colors">
-                ✉️ contact@doggywash.fr
+              <a href="mailto:contact.doggywash@gmail.com" class="hover:text-white transition-colors">
+                ✉️ contact.doggywash@gmail.com
               </a>
             </li>
           </ul>
