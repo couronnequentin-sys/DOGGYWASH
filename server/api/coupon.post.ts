@@ -15,12 +15,28 @@ async function saveToGoogleSheets(nom: string, email: string, couponCode: string
   }
 
   try {
-    // Parser le compte de service
+    // Parser le compte de service (peut être en base64 ou JSON direct)
     let serviceAccountJson: any
     try {
-      serviceAccountJson = typeof serviceAccount === 'string' 
-        ? JSON.parse(serviceAccount) 
-        : serviceAccount
+      let jsonString = serviceAccount
+      
+      // Si c'est une string, essayer de décoder en base64 d'abord
+      if (typeof serviceAccount === 'string') {
+        // Tester si c'est du base64 (pas de caractères JSON typiques au début)
+        if (!serviceAccount.trim().startsWith('{')) {
+          try {
+            // Décoder le base64
+            jsonString = Buffer.from(serviceAccount, 'base64').toString('utf-8')
+          } catch (e) {
+            // Si ça échoue, c'est peut-être du JSON direct
+            jsonString = serviceAccount
+          }
+        }
+        // Parser le JSON
+        serviceAccountJson = JSON.parse(jsonString)
+      } else {
+        serviceAccountJson = serviceAccount
+      }
     } catch (e) {
       console.error('Erreur parsing Google Service Account:', e)
       return
