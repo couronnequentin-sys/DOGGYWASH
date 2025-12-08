@@ -9,6 +9,8 @@ const isSubmitted = ref(false)
 
 const errorMessage = ref('')
 
+const { trackLead, trackCompleteRegistration } = useFacebookPixel()
+
 const handleSubmit = async () => {
   isSubmitting.value = true
   errorMessage.value = ''
@@ -24,6 +26,19 @@ const handleSubmit = async () => {
 
     if (response.success) {
       isSubmitted.value = true
+      
+      // Tracker l'événement Facebook Pixel
+      trackLead({
+        content_name: 'Coupon -50% DOGGYWASH',
+        content_category: 'Coupon',
+        value: 5, // Valeur estimée du coupon (50% de 10€ = 5€)
+        currency: 'EUR'
+      })
+      
+      trackCompleteRegistration({
+        content_name: 'Inscription coupon',
+        status: true
+      })
     } else {
       errorMessage.value = response.message || 'Une erreur est survenue'
     }

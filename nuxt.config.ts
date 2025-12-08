@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
+  runtimeConfig: {
+    public: {
+      facebookPixelId: process.env.FACEBOOK_PIXEL_ID || ''
+    }
+  },
   app: {
     head: {
       title: 'DOGGYWASH – Lave ton chien en 10 minutes',
