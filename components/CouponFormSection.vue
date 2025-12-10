@@ -5,8 +5,6 @@ const form = reactive({
 })
 
 const isSubmitting = ref(false)
-const isSubmitted = ref(false)
-
 const errorMessage = ref('')
 
 const { trackLead, trackCompleteRegistration } = useFacebookPixel()
@@ -25,9 +23,7 @@ const handleSubmit = async () => {
     })
 
     if (response.success) {
-      isSubmitted.value = true
-      
-      // Tracker l'événement Facebook Pixel
+      // Tracker l'événement Facebook Pixel avant la redirection
       trackLead({
         content_name: 'Coupon -50% DOGGYWASH',
         content_category: 'Coupon',
@@ -40,10 +36,13 @@ const handleSubmit = async () => {
         status: true
       })
       
-      // Tracker PageView après soumission réussie
-      if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'PageView')
-      }
+      // Rediriger vers la page de remerciement avec le nom en paramètre
+      await navigateTo({
+        path: '/merci',
+        query: {
+          nom: form.nom
+        }
+      })
     } else {
       errorMessage.value = response.message || 'Une erreur est survenue'
     }
@@ -96,24 +95,8 @@ const handleSubmit = async () => {
 
           <!-- Right - Form -->
           <div class="lg:col-span-3 p-8 lg:p-10">
-            <!-- Success -->
-            <div v-if="isSubmitted" class="text-center py-8">
-              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-3xl">✓</span>
-              </div>
-              <h3 class="font-display text-2xl font-bold mb-2" style="color: #0A2540;">
-                C'est noté ! 🎉
-              </h3>
-              <p style="color: #486581;" class="mb-3">
-                Tu vas recevoir ton coupon par email d'ici quelques minutes.
-              </p>
-              <p class="text-sm font-medium" style="color: #3a82ba;">
-                📧 Pense à vérifier tes spams si tu ne le vois pas !
-              </p>
-            </div>
-
             <!-- Form -->
-            <div v-else>
+            <div>
               <h3 class="font-display text-xl font-bold mb-2" style="color: #0A2540;">
                 Inscris-toi maintenant
               </h3>
