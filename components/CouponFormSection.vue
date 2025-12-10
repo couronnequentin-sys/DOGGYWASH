@@ -31,7 +31,7 @@ const handleSubmit = async () => {
       trackLead({
         content_name: 'Coupon -50% DOGGYWASH',
         content_category: 'Coupon',
-        value: 5, // Valeur estimée du coupon (50% de 10€ = 5€)
+        value: 5.00, // Valeur estimée du coupon (50% de 10€ = 5€)
         currency: 'EUR'
       })
       
@@ -39,6 +39,11 @@ const handleSubmit = async () => {
         content_name: 'Inscription coupon',
         status: true
       })
+      
+      // Tracker PageView après soumission réussie
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'PageView')
+      }
     } else {
       errorMessage.value = response.message || 'Une erreur est survenue'
     }

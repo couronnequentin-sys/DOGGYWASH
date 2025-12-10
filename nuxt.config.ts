@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   runtimeConfig: {
     public: {
-      facebookPixelId: process.env.FACEBOOK_PIXEL_ID || ''
+      facebookPixelId: process.env.FACEBOOK_PIXEL_ID || '724474856914827'
     }
   },
   app: {
@@ -26,6 +26,11 @@ export default defineNuxtConfig({
         { 
           rel: 'stylesheet', 
           href: 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap' 
+        }
+      ],
+      noscript: [
+        {
+          children: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=724474856914827&ev=PageView&noscript=1" />`
         }
       ],
       htmlAttrs: {

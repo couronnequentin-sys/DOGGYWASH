@@ -1,12 +1,12 @@
 export default defineNuxtPlugin(() => {
-  const pixelId = useRuntimeConfig().public.facebookPixelId
+  const pixelId = useRuntimeConfig().public.facebookPixelId || '724474856914827'
 
   if (!pixelId) {
     console.warn('Facebook Pixel ID not configured')
     return
   }
 
-  // Charger le script Facebook Pixel
+  // Meta Pixel Code - Code exact fourni par Meta
   ;(function(f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
     if (f.fbq) return
     n = f.fbq = function() {
@@ -29,13 +29,15 @@ export default defineNuxtPlugin(() => {
     'https://connect.facebook.net/en_US/fbevents.js'
   )
 
-  // Initialiser le Pixel
-  fbq('init', pixelId)
-  fbq('track', 'PageView')
+  // Initialiser le Pixel avec l'ID
+  window.fbq('init', pixelId)
+  window.fbq('track', 'PageView')
 
   // Exposer fbq globalement pour pouvoir l'utiliser dans les composants
-  window.fbq = window.fbq || function() {
-    (window.fbq.q = window.fbq.q || []).push(arguments)
+  if (!window.fbq) {
+    window.fbq = function() {
+      (window.fbq.q = window.fbq.q || []).push(arguments)
+    }
   }
 })
 
