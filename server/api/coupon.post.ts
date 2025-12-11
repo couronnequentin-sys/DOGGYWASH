@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 // Fonction pour envoyer les données à Google Sheets
-async function saveToGoogleSheets(nom: string, email: string, couponCode: string): Promise<void> {
+async function saveToGoogleSheets(nom: string, email: string, commune: string, couponCode: string): Promise<void> {
   const sheetsId = process.env.GOOGLE_SHEETS_ID
   const serviceAccount = process.env.GOOGLE_SERVICE_ACCOUNT
 
@@ -52,11 +52,11 @@ async function saveToGoogleSheets(nom: string, email: string, couponCode: string
       timeStyle: 'medium'
     })
     
-    const values = [[dateTime, nom, email, couponCode]]
+    const values = [[dateTime, nom, email, commune, couponCode]]
     
     // Ajouter la ligne dans le Sheet (feuille "Sheet1" par défaut)
     const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${sheetsId}/values/Sheet1!A:D:append?valueInputOption=RAW`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${sheetsId}/values/Sheet1!A:E:append?valueInputOption=RAW`,
       {
         method: 'POST',
         headers: {
@@ -239,10 +239,10 @@ export default defineEventHandler(async (event) => {
   try {
     // Récupérer les données du formulaire
     const body = await readBody(event)
-    const { nom, email } = body
+    const { nom, email, commune } = body
 
     // Validation
-    if (!nom || !email) {
+    if (!nom || !email || !commune) {
       throw createError({
         statusCode: 400,
         message: 'Tous les champs sont requis'

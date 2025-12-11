@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const form = reactive({
   nom: '',
-  email: ''
+  email: '',
+  commune: ''
 })
 
 const isSubmitting = ref(false)
@@ -18,7 +19,8 @@ const handleSubmit = async () => {
       method: 'POST',
       body: {
         nom: form.nom,
-        email: form.email
+        email: form.email,
+        commune: form.commune
       }
     })
 
@@ -133,6 +135,24 @@ const handleSubmit = async () => {
                     class="w-full px-4 py-3 border rounded-xl transition-all"
                     style="background: #EFF6FB; border-color: #b9d5eb;"
                   >
+                </div>
+
+                <div>
+                  <label for="commune" class="block text-sm font-medium mb-1" style="color: #0A2540;">
+                    Ta commune
+                  </label>
+                  <input
+                    id="commune"
+                    v-model="form.commune"
+                    type="text"
+                    required
+                    placeholder="Ex: Villefranche-sur-Saône, Anse, Gleizé..."
+                    class="w-full px-4 py-3 border rounded-xl transition-all"
+                    style="background: #EFF6FB; border-color: #b9d5eb;"
+                  >
+                  <p class="text-xs mt-1" style="color: #486581;">
+                    Pour mieux te connaître et adapter nos services à ta zone
+                  </p>
                 </div>
 
                 <!-- Error message -->
