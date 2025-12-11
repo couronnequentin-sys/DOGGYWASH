@@ -309,10 +309,10 @@ export default defineEventHandler(async (event) => {
     }
 
     // Log pour le suivi
-    console.log(`Nouvelle inscription: ${nom} (${email}) - Coupon: ${couponCode}`)
+    console.log(`Nouvelle inscription: ${nom} (${email}) - Commune: ${commune} - Coupon: ${couponCode}`)
 
     // Sauvegarder dans Google Sheets (si configuré - non bloquant)
-    await saveToGoogleSheets(nom, email, couponCode).catch(err => {
+    await saveToGoogleSheets(nom, email, commune, couponCode).catch(err => {
       console.error('Erreur Google Sheets (non bloquant):', err)
     })
 
